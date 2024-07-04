@@ -1,24 +1,33 @@
 package messenger_project;
 
+import messenger_project.apps.FacebookMessenger;
+import messenger_project.apps.MSNMessenger;
+import messenger_project.apps.ServicoMensagemInstantanea;
+import messenger_project.apps.Telegram;
+
 public class ComputadorA {
     public static void main(String[] args) {
 
-        //Objetos
-        MSNMessenger msn = new MSNMessenger();
-        FacebookMessenger fb = new FacebookMessenger();
-        Telegram tlg = new Telegram();
+        // Objeto abstrato nao instanciado (Polimorfismo)
+        ServicoMensagemInstantanea smi = null;
 
-        System.out.println("MSN");
-        msn.enviarMensagem();
-        msn.receberMensagem();
+        String appEscolhido = "msn";
 
-        System.out.println("Facebook");
-        fb.enviarMensagem();
-        fb.receberMensagem();
+        if(appEscolhido.equals("msn"))
+        {
+            smi = new MSNMessenger(); // Objeto abstrato instanciado
+        }
+        else if(appEscolhido.equals("fb"))
+        {
+            smi = new FacebookMessenger(); // Objeto abstrato instanciado
+        }
+        else if (appEscolhido.equals("tlg"))
+        {
+            smi = new Telegram(); // Objeto abstrato instanciado
+        }
 
-        System.out.println("Telegram");
-        tlg.enviarMensagem();
-        tlg.receberMensagem();
+        smi.enviarMensagem();
+        smi.receberMensagem();
 
     }
 }
