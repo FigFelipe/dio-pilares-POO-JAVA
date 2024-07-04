@@ -1,23 +1,11 @@
 package messenger_project;
 
-public class ServicoMensagemInstantanea {
+public abstract class ServicoMensagemInstantanea {
 
-    public void enviarMensagem(){
+    // Metodo abstrato, onde cada servico possui regras de negocios exclusivas
+    // Todos os serviços fazem a mesma ação, porém ao seu proprio modo
+    
+    public abstract void enviarMensagem();
+    public abstract void receberMensagem();
 
-        //1. Confirmar conexao com a internet
-        validarConectadoInternet();
-        System.out.println("Enviando mensagem");
-
-        //2. Salvar o histórico de mensagem
-        salvarHistoricoMensagem();
-    }
-    public void receberMensagem(){
-        System.out.println("Recebendo mensagem");
-    }
-    private void validarConectadoInternet(){
-        System.out.println("Validando se está conectado à internet");
-    }
-    private void salvarHistoricoMensagem(){
-        System.out.println("Salvando o histórico de mensagem");
-    }
 }
